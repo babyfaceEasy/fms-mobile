@@ -1,0 +1,13 @@
+page-welcome {
+	#welcome{
+		background: color($colors, energy);
+		h1{
+			font-size: 42px;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.marginTop{
+			margin-top: 150px;
+		}
+	}
+}
