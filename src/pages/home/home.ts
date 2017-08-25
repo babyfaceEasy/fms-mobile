@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
 
-import { WelcomePage } from '../welcome/welcome';
 
 @Component({
   selector: 'page-home',
