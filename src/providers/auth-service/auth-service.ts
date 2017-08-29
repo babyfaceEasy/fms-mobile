@@ -3,7 +3,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
-let apiUrl = "http://localhost/fms_backup/public/api/";
+let apiUrl = "http://localhost:8080/fms_backup_new/public/api/";
+let apiSec = "http://localhost:8080/fms_backup_new/public/api/user/signin";
+//let apiSec = "http://localhost:8080/lara54/public/api/user/signin";
 /*
   Generated class for the AuthServiceProvider provider.
 
@@ -13,18 +15,22 @@ let apiUrl = "http://localhost/fms_backup/public/api/";
 @Injectable()
 export class AuthServiceProvider {
 
-  constructor(public http: Http) {
+  constructor(private http: Http) {
     console.log('Hello AuthServiceProvider Provider');
   }
 
   postData(credentials, type){
   	return new Promise((resolve, reject) => {
-  		let headers = new Headers();
-  		this.http.post(apiUrl+type, JSON.stringify(credentials), {headers: headers}).subscribe(res => {
+  		let headers = new Headers({'Content-Type' : 'application/json'});
+      
+      credentials = credentials;
+      //console.log(credentials);
+  		this.http.post(apiSec, credentials, headers).subscribe(res => {
   			resolve(res.json());
   		}, (err) => {
   			reject(err);
   		});
+      //this.http.post(apiSec, {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
   	});
   }
 

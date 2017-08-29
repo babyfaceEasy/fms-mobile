@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from "@angular/http";
 
-import { AuthServiceProvider } from '../providers/auth-service';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
+import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,10 +23,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     WelcomePage,
-    LoginPage
+    LoginPage,
+    TransmissionTicketPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -32,7 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     WelcomePage,
-    LoginPage
+    LoginPage,
+    AllTicketsPage,
+    TransmissionTicketPage
   ],
   providers: [
     StatusBar,

@@ -3,21 +3,92 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Add New User</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
+    <ion-item>
+      <ion-label fixed >Full Name</ion-label>
+      <ion-input type="text" value="" required [(ngModel)]="registerData.fullname" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed >Email address</ion-label>
+      <ion-input type="email" value="" required [(ngModel)]="registerData.email" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed >Phone number</ion-label>
+      <ion-input type="text" value="" required [(ngModel)]="registerData.phone_no" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+    <ion-label>Region</ion-label>
+    <ion-select [(ngModel)]="registerData.region" required>
+      <ion-option value="1">Abia State</ion-option>
+      <ion-option value="2">Adamawa State</ion-option>
+      <ion-option value="3">Akwa Ibom State</ion-option>
+      <ion-option value="4">Anambra State</ion-option>
+      <ion-option value="5">Bauchi State</ion-option>
+      <ion-option value="6">Bayelsa State</ion-option>
+      <ion-option value="7">Benue State</ion-option>
+      <ion-option value="8">Borno State</ion-option>
+      <ion-option value="9">Cross River State</ion-option>
+      <ion-option value="10">Delta State</ion-option>
+      <ion-option value="11">Ebonyi State</ion-option>
+      <ion-option value="12">Edo State</ion-option>
+      <ion-option value="13">Ekiti State</ion-option>
+      <ion-option value="14">Enugu State</ion-option>
+      <ion-option value="15">FCT</ion-option>
+      <ion-option value="16">Gombe State</ion-option>
+      <ion-option value="17">Imo State</ion-option>
+      <ion-option value="18">Jigawa State</ion-option>
+      <ion-option value="19">Kaduna State</ion-option>
+      <ion-option value="20">Kano State</ion-option>
+      <ion-option value="21">Katsina State</ion-option>
+      <ion-option value="22">Kebbi State</ion-option>
+      <ion-option value="23">Kogi State</ion-option>
+      <ion-option value="24">Kwara State</ion-option>
+      <ion-option value="25">Lagos State</ion-option>
+      <ion-option value="26">Nasarawa State</ion-option>
+      <ion-option value="27">Niger State</ion-option>
+      <ion-option value="28">Ogun State</ion-option>
+      <ion-option value="29">Ondo State</ion-option>
+      <ion-option value="30">Osun State</ion-option>
+      <ion-option value="31">Oyo State</ion-option>
+      <ion-option value="32">Plateau State</ion-option>
+      <ion-option value="33">Rivers State</ion-option>
+      <ion-option value="34">Sokoto State</ion-option>
+      <ion-option value="35">Taraba State</ion-option>
+      <ion-option value="36">Yobe State</ion-option>
+      <ion-option value="37">Zamfara State</ion-option>
+      <ion-option value="38">NOC</ion-option>
+      <ion-option value="39">DCN</ion-option>
+      <ion-option value="40">TX TAC</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>User Role</ion-label>
+    <ion-select [(ngModel)]="registerData.role" required>
+      <ion-option value="ne">Network Engineer</ion-option>
+      <ion-option value="ns">NOC Staff</ion-option>
+      <ion-option value="na">NOC Admin</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <ion-item>
+      <ion-label fixed >Password</ion-label>
+      <ion-input type="password" required [(ngModel)]="registerData.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed >Confirm Password</ion-label>
+      <ion-input type="password" required ></ion-input>
+    </ion-item>
+
+    <button ion-button block color="primary" (click)="register()">Add New User</button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

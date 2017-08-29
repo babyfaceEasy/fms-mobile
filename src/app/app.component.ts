@@ -10,6 +10,8 @@ import { ListPage } from '../pages/list/list';
 
 //this is so i can change the landing page of the app
 import { WelcomePage } from '../pages/welcome/welcome';
+import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
+import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +30,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Add User', component: ListPage },
+      { title: 'All Tickets', component: AllTicketsPage },
+      { title: 'Transmission Ticket', component: TransmissionTicketPage }
     ];
 
   }

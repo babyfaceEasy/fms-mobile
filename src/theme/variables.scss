@@ -39,7 +39,10 @@ $colors: (
   danger:     #b5b5b7,
   light:      #f4f4f4,
   dark:       #222,
-  energy: 	  #f2b632
+  energy: 	  #f2b632,
+  warm: 	  #FFb400,
+  success:    #17ff00,
+  warning:    #FF0020	
 );
 
 $toolbar-background: color($colors, primary);

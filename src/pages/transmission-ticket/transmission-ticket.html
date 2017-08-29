@@ -1,0 +1,107 @@
+<!--
+  Generated template for the TransmissionTicketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>transmission_ticket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+		<ion-item>
+			<ion-label fixed >Title</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.title"></ion-input>
+		</ion-item>
+
+		<ion-item>
+		<ion-label>Region</ion-label>
+		<ion-select [(ngModel)]="transmissionTicketData.region" required>
+		  <ion-option value="1">Abia State</ion-option>
+		  <ion-option value="2">Adamawa State</ion-option>
+		  <ion-option value="3">Akwa Ibom State</ion-option>
+		  <ion-option value="4">Anambra State</ion-option>
+		  <ion-option value="5">Bauchi State</ion-option>
+		  <ion-option value="6">Bayelsa State</ion-option>
+		  <ion-option value="7">Benue State</ion-option>
+		  <ion-option value="8">Borno State</ion-option>
+		  <ion-option value="9">Cross River State</ion-option>
+		  <ion-option value="10">Delta State</ion-option>
+		  <ion-option value="11">Ebonyi State</ion-option>
+		  <ion-option value="12">Edo State</ion-option>
+		  <ion-option value="13">Ekiti State</ion-option>
+		  <ion-option value="14">Enugu State</ion-option>
+		  <ion-option value="15">FCT</ion-option>
+		  <ion-option value="16">Gombe State</ion-option>
+		  <ion-option value="17">Imo State</ion-option>
+		  <ion-option value="18">Jigawa State</ion-option>
+		  <ion-option value="19">Kaduna State</ion-option>
+		  <ion-option value="20">Kano State</ion-option>
+		  <ion-option value="21">Katsina State</ion-option>
+		  <ion-option value="22">Kebbi State</ion-option>
+		  <ion-option value="23">Kogi State</ion-option>
+		  <ion-option value="24">Kwara State</ion-option>
+		  <ion-option value="25">Lagos State</ion-option>
+		  <ion-option value="26">Nasarawa State</ion-option>
+		  <ion-option value="27">Niger State</ion-option>
+		  <ion-option value="28">Ogun State</ion-option>
+		  <ion-option value="29">Ondo State</ion-option>
+		  <ion-option value="30">Osun State</ion-option>
+		  <ion-option value="31">Oyo State</ion-option>
+		  <ion-option value="32">Plateau State</ion-option>
+		  <ion-option value="33">Rivers State</ion-option>
+		  <ion-option value="34">Sokoto State</ion-option>
+		  <ion-option value="35">Taraba State</ion-option>
+		  <ion-option value="36">Yobe State</ion-option>
+		  <ion-option value="37">Zamfara State</ion-option>
+		  <ion-option value="38">NOC</ion-option>
+		  <ion-option value="39">DCN</ion-option>
+		  <ion-option value="40">TX TAC</ion-option>
+		</ion-select>
+		</ion-item>
+
+		<ion-item>
+    <ion-label>Priority</ion-label>
+    <ion-select [(ngModel)]="transmissionTicketData.priority" required>
+      <ion-option value="low">Low</ion-option>
+      <ion-option value="medium">Medium</ion-option>
+      <ion-option value="high">High</ion-option>
+    </ion-select>
+  </ion-item>
+
+  		<ion-item>
+			<ion-label fixed >Node A</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.node_a"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed >Node B</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.node_b"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed >Vendor</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.vendor"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed >Time of Occurence</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.time_of_occ"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed >Cause of Failure</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.cause_of_failure"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed >Impact</ion-label>
+			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.impact"></ion-input>
+		</ion-item>
+
+		<button ion-button block color="primary" (click)="login_act()">Add Transmission Ticket</button>
+</ion-list>
+
+</ion-content>
