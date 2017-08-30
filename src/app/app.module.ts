@@ -11,6 +11,7 @@ import { ListPage } from '../pages/list/list';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
 import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
+import { BsnTicketPage } from '../pages/bsn-ticket/bsn-ticket';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,7 +25,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     WelcomePage,
     LoginPage,
-    TransmissionTicketPage
+    AllTicketsPage,
+    TransmissionTicketPage,
+    BsnTicketPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -38,7 +41,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     WelcomePage,
     LoginPage,
     AllTicketsPage,
-    TransmissionTicketPage
+    TransmissionTicketPage,
+    BsnTicketPage
   ],
   providers: [
     StatusBar,

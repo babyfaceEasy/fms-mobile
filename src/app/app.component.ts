@@ -11,7 +11,9 @@ import { ListPage } from '../pages/list/list';
 //this is so i can change the landing page of the app
 import { WelcomePage } from '../pages/welcome/welcome';
 import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
+/*import { LoginPage } from '../pages/login/login';*/
 import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
+import { BsnTicketPage } from '../pages/bsn-ticket/bsn-ticket';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +34,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Add User', component: ListPage },
       { title: 'All Tickets', component: AllTicketsPage },
-      { title: 'Transmission Ticket', component: TransmissionTicketPage }
+      { title: 'Add Transmission Ticket', component: TransmissionTicketPage },
+      { title: 'Add BSN Ticket', component: BsnTicketPage }
     ];
 
   }

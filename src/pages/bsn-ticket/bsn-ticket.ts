@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the TransmissionTicketPage page.
+ * Generated class for the BsnTicketPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -10,18 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-transmission-ticket',
-  templateUrl: 'transmission-ticket.html',
+  selector: 'page-bsn-ticket',
+  templateUrl: 'bsn-ticket.html',
 })
-export class TransmissionTicketPage {
+export class BsnTicketPage {
 
-	transmissionTicketData = {
+	bsnTicketData = {
 		"title": "",
 		"region": "",
 		"priority":"",
-		"node_a":"",
-		"node_b":"",
-		"vendor": "",
+		"site_id":"",
+		"bsc_rnc":"",
 		"time_of_occ": "",
 		"cause_of_failure": "",
 		"impact": ""
@@ -31,11 +30,11 @@ export class TransmissionTicketPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TransmissionTicketPage');
+    console.log('ionViewDidLoad BsnTicketPage');
   }
 
-  addTansmissionTicket(){
-  	console.log('add new transmission ticket');
+  addBscTicket(){
+  	console.log(this.bsnTicketData);
   }
 
 }
