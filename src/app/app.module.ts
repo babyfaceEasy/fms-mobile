@@ -12,7 +12,11 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
 import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
 import { BsnTicketPage } from '../pages/bsn-ticket/bsn-ticket';
+import { IpntwkTicketPage } from '../pages/ipntwk-ticket/ipntwk-ticket';
+import { ChgePwdPage } from '../pages/chge-pwd/chge-pwd';
 import { LoginPage } from '../pages/login/login';
+import { ReportsPage } from '../pages/reports/reports';
+import { TicketUpdatesPage } from '../pages/ticket-updates/ticket-updates';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +31,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AllTicketsPage,
     TransmissionTicketPage,
-    BsnTicketPage
+    BsnTicketPage,
+    IpntwkTicketPage,
+    ChgePwdPage,
+    ReportsPage,
+    TicketUpdatesPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -42,7 +50,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AllTicketsPage,
     TransmissionTicketPage,
-    BsnTicketPage
+    BsnTicketPage,
+    IpntwkTicketPage,
+    ChgePwdPage,
+    ReportsPage,
+    TicketUpdatesPage
   ],
   providers: [
     StatusBar,

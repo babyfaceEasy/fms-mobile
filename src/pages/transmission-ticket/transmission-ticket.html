@@ -5,25 +5,30 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>New Transmission Ticket</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+	<form [formGroup]="transmissionTicketForm">
 	<ion-list>
 		<ion-item>
 			<ion-label fixed >Title</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.title"></ion-input>
+			<ion-input type="text" value="" required formControlName="title" 
+			[class.invalid]="!transmissionTicketForm.controls.title.valid && (transmissionTicketForm.controls.title.dirty || submitAttempt)"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.title.valid  && (transmissionTicketForm.controls.title.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please enter the title.</p>
+    	</ion-item>
 
 		<ion-item>
 		<ion-label>Region</ion-label>
-		<ion-select [(ngModel)]="transmissionTicketData.region" required>
+		<ion-select formControlName="region" [class.invalid]="!transmissionTicketForm.controls.region.valid && (transmissionTicketForm.controls.region.dirty || submitAttempt)">
 		  <ion-option value="1">Abia State</ion-option>
 		  <ion-option value="2">Adamawa State</ion-option>
 		  <ion-option value="3">Akwa Ibom State</ion-option>
@@ -66,42 +71,74 @@
 		  <ion-option value="40">TX TAC</ion-option>
 		</ion-select>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.region.valid  && (transmissionTicketForm.controls.region.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please select the region.</p>
+    	</ion-item>
 
 		<ion-item>
     <ion-label>Priority</ion-label>
-    <ion-select [(ngModel)]="transmissionTicketData.priority" required>
+    <ion-select formControlName="priority" [class.invalid]="!transmissionTicketForm.controls.priority.valid && (transmissionTicketForm.controls.priority.dirty || submitAttempt)">
       <ion-option value="low">Low</ion-option>
       <ion-option value="medium">Medium</ion-option>
       <ion-option value="high">High</ion-option>
     </ion-select>
   </ion-item>
+  <ion-item *ngIf="!transmissionTicketForm.controls.priority.valid  && (transmissionTicketForm.controls.priority.dirty || submitAttempt)">
+		<p style="color: #ea6153;">Please select the priority.</p>
+	</ion-item>
 
   		<ion-item>
 			<ion-label fixed >Node A</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.node_a"></ion-input>
+			<ion-input type="text" value="" formControlName="node_a"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.node_a.valid  && (transmissionTicketForm.controls.node_a.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please enter the node A.</p>
+    	</ion-item>
+
 		<ion-item>
 			<ion-label fixed >Node B</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.node_b"></ion-input>
+			<ion-input type="text" value="" formControlName="node_b"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.node_b.valid  && (transmissionTicketForm.controls.node_b.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please enter the node B.</p>
+    	</ion-item>
+
 		<ion-item>
 			<ion-label fixed >Vendor</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.vendor"></ion-input>
+			<ion-input type="text" value="" formControlName="vendor"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.vendor.valid  && (transmissionTicketForm.controls.vendor.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please enter the Vendor.</p>
+    	</ion-item>
+
 		<ion-item>
 			<ion-label fixed >Time of Occurence</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.time_of_occ"></ion-input>
+			<ion-input type="text" value="" required formControlName="time_of_occ"
+			[class.invalid]="!transmissionTicketForm.controls.time_of_occ.valid && (transmissionTicketForm.controls.time_of_occ.dirty || submitAttempt)"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.time_of_occ.valid  && (transmissionTicketForm.controls.time_of_occ.dirty || submitAttempt)">
+	      <p style="color: #ea6153;">Please enter the time of occurence.</p>
+	    </ion-item>
+
 		<ion-item>
 			<ion-label fixed >Cause of Failure</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.cause_of_failure"></ion-input>
+			<ion-input type="text" value="" required formControlName="cause_of_failure"
+			[class.invalid]="!transmissionTicketForm.controls.cause_of_failure.valid && (transmissionTicketForm.controls.cause_of_failure.dirty || submitAttempt)"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.cause_of_failure.valid  && (transmissionTicketForm.controls.cause_of_failure.dirty || submitAttempt)">
+	      <p style="color: #ea6153;">Please enter the cause of failure.</p>
+	    </ion-item>
+
 		<ion-item>
 			<ion-label fixed >Impact</ion-label>
-			<ion-input type="text" value="" required [(ngModel)]="transmissionTicketData.impact"></ion-input>
+			<ion-input type="text" value="" required formControlName="impact"
+			[class.invalid]="!transmissionTicketForm.controls.impact.valid && (transmissionTicketForm.controls.impact.dirty || submitAttempt)"></ion-input>
 		</ion-item>
+		<ion-item *ngIf="!transmissionTicketForm.controls.impact.valid  && (transmissionTicketForm.controls.impact.dirty || submitAttempt)">
+	      <p style="color: #ea6153;">Please enter the impact.</p>
+	    </ion-item>
 
 		<button ion-button block color="primary" (click)="addTansmissionTicket()">Add Transmission Ticket</button>
 </ion-list>
-
+</form>
 </ion-content>

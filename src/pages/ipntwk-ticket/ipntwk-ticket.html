@@ -1,5 +1,5 @@
 <!--
-  Generated template for the TransmissionTicketPage page.
+  Generated template for the IpntwkTicketPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,29 +9,26 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>New Base Station Switch Ticket</ion-title>
+    <ion-title>New IP Network Ticket</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
-	<form [formGroup]="bsnTicketForm">
-	<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+	<form [formGroup]="ipTicketForm">
 	<ion-list>
 		<ion-item>
 			<ion-label floating >Title</ion-label>
 			<ion-input type="text" value="" required formControlName="title"
-			[class.invalid]="!bsnTicketForm.controls.title.valid && (bsnTicketForm.controls.title.dirty || submitAttempt)"></ion-input>
+			[class.invalid]="!ipTicketForm.controls.title.valid && (ipTicketForm.controls.title.dirty || submitAttempt)"></ion-input>
 		</ion-item>
-
-		<ion-item *ngIf="!bsnTicketForm.controls.title.valid  && (bsnTicketForm.controls.title.dirty || submitAttempt)">
+		<ion-item *ngIf="!ipTicketForm.controls.title.valid  && (ipTicketForm.controls.title.dirty || submitAttempt)">
       		<p style="color: #ea6153;">Please enter the title.</p>
     	</ion-item>
 
 		<ion-item>
 		<ion-label>Region</ion-label>
-		<ion-select formControlName="region" required [class.invalid]="!bsnTicketForm.controls.region.valid && (bsnTicketForm.controls.region.dirty || submitAttempt)">
+		<ion-select formControlName="region" [class.invalid]="!ipTicketForm.controls.region.valid && (ipTicketForm.controls.region.dirty || submitAttempt)">
 		  <ion-option value="1">Abia State</ion-option>
 		  <ion-option value="2">Adamawa State</ion-option>
 		  <ion-option value="3">Akwa Ibom State</ion-option>
@@ -74,71 +71,59 @@
 		  <ion-option value="40">TX TAC</ion-option>
 		</ion-select>
 		</ion-item>
-
-		<ion-item *ngIf="!bsnTicketForm.controls.region.valid  && (bsnTicketForm.controls.region.dirty || submitAttempt)">
-	      <p style="color: #ea6153;">Please select a region.</p>
-	    </ion-item>
+		<ion-item *ngIf="!ipTicketForm.controls.region.valid  && (ipTicketForm.controls.region.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please select the region.</p>
+    	</ion-item>
 
 		<ion-item>
     <ion-label>Priority</ion-label>
-    <ion-select formControlName="priority" [class.invalid]="!bsnTicketForm.controls.priority.valid && (bsnTicketForm.controls.priority.dirty || submitAttempt)">
+    <ion-select formControlName="priority" [class.invalid]="!ipTicketForm.controls.priority.valid && (ipTicketForm.controls.priority.dirty || submitAttempt)">
       <ion-option value="low">Low</ion-option>
       <ion-option value="medium">Medium</ion-option>
       <ion-option value="high">High</ion-option>
     </ion-select>
   </ion-item>
+  <ion-item *ngIf="!ipTicketForm.controls.priority.valid  && (ipTicketForm.controls.priority.dirty || submitAttempt)">
+		<p style="color: #ea6153;">Please select the priority.</p>
+	</ion-item>
 
-  <ion-item *ngIf="!bsnTicketForm.controls.priority.valid  && (bsnTicketForm.controls.priority.dirty || submitAttempt)">
-      <p style="color: #ea6153;">Please select the priority.</p>
-  </ion-item>
 
   		<ion-item>
-			<ion-label floating >Site ID</ion-label>
-			<ion-input type="text" value="" required formControlName="site_id"
-			[class.invalid]="!bsnTicketForm.controls.site_id.valid && (bsnTicketForm.controls.site_id.dirty || submitAttempt)"></ion-input>
+			<ion-label floating >Location</ion-label>
+			<ion-input type="text" value="" required formControlName="location"
+			[class.invalid]="!ipTicketForm.controls.location.valid && (ipTicketForm.controls.location.dirty || submitAttempt)"></ion-input>
 		</ion-item>
-		<ion-item *ngIf="!bsnTicketForm.controls.site_id.valid  && (bsnTicketForm.controls.site_id.dirty || submitAttempt)">
-	      <p style="color: #ea6153;">Please enter your Site ID.</p>
-	    </ion-item>
-
-		<ion-item>
-			<ion-label floating >BSC/RNC</ion-label>
-			<ion-input type="text" value="" required formControlName="bsc_rnc"
-			[class.invalid]="!bsnTicketForm.controls.bsc_rnc.valid && (bsnTicketForm.controls.bsc_rnc.dirty || submitAttempt)"></ion-input>
-		</ion-item>
-		<ion-item *ngIf="!bsnTicketForm.controls.bsc_rnc.valid  && (bsnTicketForm.controls.bsc_rnc.dirty || submitAttempt)">
-	      <p style="color: #ea6153;">Please enter the BSC/RNC.</p>
-	    </ion-item>
-
+		<ion-item *ngIf="!ipTicketForm.controls.location.valid  && (ipTicketForm.controls.location.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please enter the location.</p>
+    	</ion-item>
 		<ion-item>
 			<ion-label floating >Time of Occurence</ion-label>
-			<ion-input type="text" value="" required formControlName="time_of_occ"
-			[class.invalid]="!bsnTicketForm.controls.time_of_occ.valid && (bsnTicketForm.controls.time_of_occ.dirty || submitAttempt)"></ion-input>
+			<ion-input type="text" value="" required formControlName="time_of_occ" 
+			[class.invalid]="!ipTicketForm.controls.time_of_occ.valid && (ipTicketForm.controls.time_of_occ.dirty || submitAttempt)"></ion-input>
 		</ion-item>
-		<ion-item *ngIf="!bsnTicketForm.controls.time_of_occ.valid  && (bsnTicketForm.controls.time_of_occ.dirty || submitAttempt)">
+		<ion-item *ngIf="!ipTicketForm.controls.time_of_occ.valid  && (ipTicketForm.controls.time_of_occ.dirty || submitAttempt)">
 	      <p style="color: #ea6153;">Please enter the time of occurence.</p>
 	    </ion-item>
 
 		<ion-item>
 			<ion-label floating >Cause of Failure</ion-label>
-			<ion-input type="text" value="" requiredformControlName="cause_of_failure"
-			[class.invalid]="!bsnTicketForm.controls.cause_of_failure.valid && (bsnTicketForm.controls.cause_of_failure.dirty || submitAttempt)"></ion-input>
+			<ion-input type="text" value="" required formControlName="cause_of_failure" 
+			[class.invalid]="!ipTicketForm.controls.cause_of_failure.valid && (ipTicketForm.controls.cause_of_failure.dirty || submitAttempt)"></ion-input>
 		</ion-item>
-		<ion-item *ngIf="!bsnTicketForm.controls.cause_of_failure.valid  && (bsnTicketForm.controls.cause_of_failure.dirty || submitAttempt)">
+		<ion-item *ngIf="!ipTicketForm.controls.cause_of_failure.valid  && (ipTicketForm.controls.cause_of_failure.dirty || submitAttempt)">
 	      <p style="color: #ea6153;">Please enter the cause of failure.</p>
 	    </ion-item>
 
 		<ion-item>
 			<ion-label floating >Impact</ion-label>
-			<ion-input type="text" value="" formControlName="impact"
-			[class.invalid]="!bsnTicketForm.controls.impact.valid && (bsnTicketForm.controls.impact.dirty || submitAttempt)"></ion-input>
+			<ion-input type="text" value="" required formControlName="impact"
+			[class.invalid]="!ipTicketForm.controls.impact.valid && (ipTicketForm.controls.impact.dirty || submitAttempt)"></ion-input>
 		</ion-item>
-		<ion-item *ngIf="!bsnTicketForm.controls.impact.valid  && (bsnTicketForm.controls.impact.dirty || submitAttempt)">
+		<ion-item *ngIf="!ipTicketForm.controls.impact.valid  && (ipTicketForm.controls.impact.dirty || submitAttempt)">
 	      <p style="color: #ea6153;">Please enter the impact.</p>
 	    </ion-item>
 
-		<button ion-button block color="primary" (click)="addBsnTicket()">Add Transmission Ticket</button>
-</ion-list>
-</form>
-
+		<button ion-button block color="primary" (click)="addIpNtwkTicket()">Add IP Network Ticket</button>
+	</ion-list>
+	</form>
 </ion-content>

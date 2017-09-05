@@ -13,7 +13,10 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { AllTicketsPage } from '../pages/all-tickets/all-tickets';
 /*import { LoginPage } from '../pages/login/login';*/
 import { TransmissionTicketPage } from '../pages/transmission-ticket/transmission-ticket';
+import { IpntwkTicketPage } from '../pages/ipntwk-ticket/ipntwk-ticket';
 import { BsnTicketPage } from '../pages/bsn-ticket/bsn-ticket';
+import { ChgePwdPage } from '../pages/chge-pwd/chge-pwd';
+import { ReportsPage } from '../pages/reports/reports';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,9 +38,11 @@ export class MyApp {
       { title: 'Add User', component: ListPage },
       { title: 'All Tickets', component: AllTicketsPage },
       { title: 'Add Transmission Ticket', component: TransmissionTicketPage },
-      { title: 'Add BSN Ticket', component: BsnTicketPage }
+      { title: 'Add BSN Ticket', component: BsnTicketPage },
+      { title: 'Add IP Network Ticket', component: IpntwkTicketPage },
+      { title: 'Reports', component: ReportsPage },
+      { title: 'Change Password', component: ChgePwdPage }
     ];
-
   }
 
   initializeApp() {

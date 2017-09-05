@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 /**
  * Generated class for the BsnTicketPage page.
@@ -15,6 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BsnTicketPage {
 
+	bsnTicketForm : FormGroup;
+	submitAttempt: boolean = false;
+
 	bsnTicketData = {
 		"title": "",
 		"region": "",
@@ -26,15 +30,32 @@ export class BsnTicketPage {
 		"impact": ""
 	};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+  	public navParams: NavParams, formBuilder: FormBuilder) {
+
+  	this.bsnTicketForm = formBuilder.group({
+  		title: ['', Validators.compose([Validators.required])],
+  		region: ['', Validators.compose([Validators.required])],
+  		priority: ['', Validators.compose([Validators.required])],
+  		site_id: ['', Validators.compose([Validators.required])],
+  		bsc_rnc: ['', Validators.compose([Validators.required])],
+  		time_of_occ: ['', Validators.compose([Validators.required])],
+  		cause_of_failure: ['', Validators.compose([Validators.required])],
+  		impact: ['', Validators.compose([Validators.required])]
+  	});
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BsnTicketPage');
   }
 
-  addBscTicket(){
-  	console.log(this.bsnTicketData);
+  addBsnTicket(){
+  	this.submitAttempt = true;
+
+  	if(!this.bsnTicketForm.valid){
+  		return;
+  	}
+  	console.log(this.bsnTicketForm.value);
   }
 
 }

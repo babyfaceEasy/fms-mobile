@@ -8,25 +8,43 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="registerForm">
+  <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
   <ion-list>
     <ion-item>
-      <ion-label fixed >Full Name</ion-label>
-      <ion-input type="text" value="" required [(ngModel)]="registerData.fullname" ></ion-input>
+      <ion-label floating >Full Name</ion-label>
+      <ion-input type="text" value="" required formControlName="fullname" 
+      [class.invalid]="!registerForm.controls.fullname.valid && (registerForm.controls.fullname.dirty || submitAttempt)"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!registerForm.controls.fullname.valid  && (registerForm.controls.fullname.dirty || submitAttempt)">
+      <p style="color: #ea6153;">Please enter your full name.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed >Email address</ion-label>
-      <ion-input type="email" value="" required [(ngModel)]="registerData.email" ></ion-input>
+      <ion-label floating >Email address</ion-label>
+      <ion-input type="email" value="" required formControlName="email" 
+      [class.invalid]="!registerForm.controls.email.valid && (registerForm.controls.email.dirty || submitAttempt)"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!registerForm.controls.email.valid  && (registerForm.controls.email.dirty || submitAttempt)">
+      <p style="color: #ea6153;">Please enter your email address.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed >Phone number</ion-label>
-      <ion-input type="text" value="" required [(ngModel)]="registerData.phone_no" ></ion-input>
+      <ion-label floating >Phone number</ion-label>
+      <ion-input type="text" value="" required formControlName="phone_no" 
+      [class.invalid]="!registerForm.controls.phone_no.valid && (registerForm.controls.phone_no.dirty || submitAttempt)"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!registerForm.controls.phone_no.valid  && (registerForm.controls.phone_no.dirty || submitAttempt)">
+      <p style="color: #ea6153;">Please enter your phone number.</p>
     </ion-item>
 
     <ion-item>
     <ion-label>Region</ion-label>
-    <ion-select [(ngModel)]="registerData.region" required>
+    <ion-select formControlName="region" required
+    [class.invalid]="!registerForm.controls.region.valid && (registerForm.controls.region.dirty || submitAttempt)">
       <ion-option value="1">Abia State</ion-option>
       <ion-option value="2">Adamawa State</ion-option>
       <ion-option value="3">Akwa Ibom State</ion-option>
@@ -70,25 +88,40 @@
     </ion-select>
   </ion-item>
 
+  <ion-item *ngIf="!registerForm.controls.region.valid  && (registerForm.controls.region.dirty || submitAttempt)">
+    <p style="color: #ea6153;">Please select a region.</p>
+  </ion-item>
+
   <ion-item>
     <ion-label>User Role</ion-label>
-    <ion-select [(ngModel)]="registerData.role" required>
+    <ion-select formControlName="role" required
+    [class.invalid]="!registerForm.controls.role.valid && (registerForm.controls.role.dirty || submitAttempt)">
       <ion-option value="ne">Network Engineer</ion-option>
       <ion-option value="ns">NOC Staff</ion-option>
       <ion-option value="na">NOC Admin</ion-option>
     </ion-select>
   </ion-item>
 
-    <ion-item>
-      <ion-label fixed >Password</ion-label>
-      <ion-input type="password" required [(ngModel)]="registerData.password"></ion-input>
-    </ion-item>
+  <ion-item *ngIf="!registerForm.controls.role.valid  && (registerForm.controls.role.dirty || submitAttempt)">
+    <p style="color: #ea6153;">Please select a role.</p>
+  </ion-item>
 
     <ion-item>
-      <ion-label fixed >Confirm Password</ion-label>
-      <ion-input type="password" required ></ion-input>
+      <ion-label floating >Password</ion-label>
+      <ion-input type="password" required formControlName="password" 
+      [class.invalid]="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || submitAttempt)"></ion-input>
     </ion-item>
+
+    <ion-item *ngIf="!registerForm.controls.password.valid  && (registerForm.controls.password.dirty || submitAttempt)">
+      <p style="color: #ea6153;">Please enter your password.</p>
+    </ion-item>
+
+    <!--<ion-item>
+      <ion-label floating >Confirm Password</ion-label>
+      <ion-input type="password" required ></ion-input>
+    </ion-item>-->
 
     <button ion-button block color="primary" (click)="register()">Add New User</button>
   </ion-list>
+  </form>
 </ion-content>

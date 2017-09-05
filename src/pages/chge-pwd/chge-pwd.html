@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ChgePwdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Change Password</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<form [formGroup]="changePwdForm">
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Old Password:</ion-label>
+			<ion-input type="password" formControlName="old_pwd" 
+			[class.invalid]="!changePwdForm.controls.old_pwd.valid && (changePwdForm.controls.old_pwd.dirty || submitAttempt)"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="!changePwdForm.controls.old_pwd.valid  && (changePwdForm.controls.old_pwd.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please provide your password.</p>
+    	</ion-item>
+
+		<ion-item>
+			<ion-label floating>New  Password:</ion-label>
+			<ion-input type="password" formControlName="new_pwd" 
+			[class.invalid]="!changePwdForm.controls.new_pwd.valid && (changePwdForm.controls.new_pwd.dirty || submitAttempt)"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="!changePwdForm.controls.new_pwd.valid  && (changePwdForm.controls.new_pwd.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please provide the new password.</p>
+    	</ion-item>
+
+		<ion-item>
+			<ion-label floating>Re-type Password:</ion-label>
+			<ion-input type="password" formControlName="confirm_pwd" 
+			[class.invalid]="!changePwdForm.controls.confirm_pwd.valid && (changePwdForm.controls.confirm_pwd.dirty || submitAttempt)"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="!changePwdForm.controls.confirm_pwd.valid  && (changePwdForm.controls.confirm_pwd.dirty || submitAttempt)">
+      		<p style="color: #ea6153;">Please confirm your new password.</p>
+    	</ion-item>
+
+		<button ion-button block color="primary" (click)="changePassword()">Change Password</button>
+	</ion-list>
+	</form>
+</ion-content>

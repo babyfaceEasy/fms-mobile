@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { TicketUpdatesPage } from '../ticket-updates/ticket-updates';
-
 /**
- * Generated class for the AllTicketsPage page.
+ * Generated class for the TicketUpdatesPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -12,21 +10,16 @@ import { TicketUpdatesPage } from '../ticket-updates/ticket-updates';
 
 @IonicPage()
 @Component({
-  selector: 'page-all-tickets',
-  templateUrl: 'all-tickets.html',
+  selector: 'page-ticket-updates',
+  templateUrl: 'ticket-updates.html',
 })
-export class AllTicketsPage {
+export class TicketUpdatesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AllTicketsPage');
-  }
-
-  testFunc(){
-  	//console.log('kunle');
-  	this.navCtrl.push(TicketUpdatesPage);
+    console.log('ionViewDidLoad TicketUpdatesPage');
   }
 
 }

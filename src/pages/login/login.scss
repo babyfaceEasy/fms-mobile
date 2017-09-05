@@ -1,3 +1,15 @@
-page-login {
-
+.ios, .md{
+	page-login {
+		p {
+            font-size: 0.8em;
+            color: #d2d2d2;
+        }
+ 
+        .invalid {
+            border: 1px solid #ea6153;
+        }
+        input{
+        	padding: 5px;
+        }
+	}
 }
