@@ -12,7 +12,7 @@
 	<ion-list no-lines>
 		<ion-item>
 			<ion-label floating >Username</ion-label>
-			<ion-input type="text" value="" required formControlName="email"
+			<ion-input type="text" value="" formControlName="email"
 			[class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
 		</ion-item>
 
@@ -22,7 +22,7 @@
 
 		<ion-item>
 			<ion-label floating >Password</ion-label>
-			<ion-input type="password" required formControlName="password"
+			<ion-input type="password" formControlName="password"
 			[class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
 		</ion-item>
 

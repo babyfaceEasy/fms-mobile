@@ -25,13 +25,23 @@ export class AuthServiceProvider {
       
       credentials = credentials;
       //console.log(credentials);
-  		this.http.post(apiSec, credentials, headers).subscribe(res => {
+  		this.http.post(apiUrl + type, credentials, headers).subscribe(res => {
   			resolve(res.json());
   		}, (err) => {
   			reject(err);
   		});
       //this.http.post(apiSec, {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
   	});
-  }
+  }//end of postData
+
+  getData(endPoint){
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl+endPoint).subscribe(res => {
+        resolve(res.json());
+      }, (err) => {
+        reject(err);
+      });//end of get()
+    });//end of new Promise
+  }//end of getData
 
 }

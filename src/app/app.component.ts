@@ -24,6 +24,9 @@ import { ReportsPage } from '../pages/reports/reports';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  //logged in user
+  loggedInUser:any= "na";
+
   //rootPage: any = HomePage;
   rootPage: any = WelcomePage;
 
@@ -32,8 +35,40 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
+
+    //do the logic here, where depending on who logs in some links are hidden
+    //noc admin
+    if (this.loggedInUser == "na") {
+        this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'Add User', component: ListPage },
+        { title: 'All Tickets', component: AllTicketsPage },
+        { title: 'Add Transmission Ticket', component: TransmissionTicketPage },
+        { title: 'Add BSN Ticket', component: BsnTicketPage },
+        { title: 'Add IP Network Ticket', component: IpntwkTicketPage },
+        { title: 'Reports', component: ReportsPage },
+        { title: 'Change Password', component: ChgePwdPage }
+      ];
+    }else if (this.loggedInUser == "ns"){
+        //noc staff
+        this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'Add User', component: ListPage },
+        { title: 'All Tickets', component: AllTicketsPage },
+        { title: 'Add Transmission Ticket', component: TransmissionTicketPage }
+      ];
+    }else if(this.loggedInUser == "ne"){
+      //noc engineer
+      this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'Add User', component: ListPage },
+        { title: 'All Tickets', component: AllTicketsPage },
+        { title: 'Add Transmission Ticket', component: TransmissionTicketPage }
+      ];
+    }
+
     // used for an example of ngFor and navigation
-    this.pages = [
+    /*this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Add User', component: ListPage },
       { title: 'All Tickets', component: AllTicketsPage },
@@ -42,7 +77,7 @@ export class MyApp {
       { title: 'Add IP Network Ticket', component: IpntwkTicketPage },
       { title: 'Reports', component: ReportsPage },
       { title: 'Change Password', component: ChgePwdPage }
-    ];
+    ];*/
   }
 
   initializeApp() {

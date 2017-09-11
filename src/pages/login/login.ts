@@ -39,21 +39,41 @@ export class LoginPage {
   }
 
   handleErrors(err){
-  	/*let alert = this.alertCtrl.create({
-  		title: 'Error',
-  		subTitle: '',
-  	});*/
+    if(err.status == 401){
+      //invalid credentials
+      var errMsg = JSON.parse(err._body);
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: errMsg.error,
+        buttons: ['Dismiss']
+      });
+      alert.present();
+      return;
+    }else if( err.status == 422 ){
+      var errMsg = JSON.parse(err._body);
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: errMsg,
+        buttons: ['Dismiss']
+      });
+      alert.present();
+      return;
+    }
+    return;
   }
+
+
 
   login_act(){
 
-    this.submitAttempt = true;
+    /*this.submitAttempt = true;
     if(!this.loginForm.valid){
       return;
     }
     console.log("success!");
     console.log(this.loginForm.value);
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage);*/
+
 
   	//this is to validate if the boxes are empty
 
@@ -62,14 +82,16 @@ export class LoginPage {
   	//this.navCtrl.push(HomePage);
     //this.navCtrl.setRoot(HomePage);
   	//Api connections
-  	/*this.authService.postData(this.loginData, "user/signin").then((result) => {
+  	this.authService.postData(this.loginForm.value, "user/signin").then((result) => {
   		this.reponseData = result;
   		console.log(this.reponseData);
+      console.log(this.reponseData.user.role);
   		localStorage.setItem('token', JSON.stringify(this.reponseData));
   		this.navCtrl.push(HomePage);
   	}, (err) => {
   		console.log(err);
-  	});//end of authService*/
+      this.handleErrors(err);
+  	});//end of authService
   }
 
 }
